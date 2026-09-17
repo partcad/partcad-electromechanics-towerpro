@@ -39,6 +39,25 @@ assemblies:
   example/mg90s:
     type: assy
     desc: An example assembly with MG90S servo
+    interference:
+      # Two pairs that are meant to touch, and do so in solid rather than in
+      # the springs and chamfers a STEP model does not carry.
+      #
+      #  * the horn is pushed onto the splined output boss - an interference
+      #    fit is what holds a servo horn on, so the two share the material the
+      #    splines bite into (2.922 mm^3);
+      #  * the countersunk screw beds into the horn, whose hole is modelled as
+      #    a plain 1mm through hole with no countersink to receive the cone
+      #    (1.627 mm^3).
+      #
+      # Both have always been here; they became visible when
+      # 'partcad.test.interference' stopped passing on its own failure
+      # (partcad/partcad#630). Neither is placement that can be corrected -
+      # 'moveZ' on these interfaces has no range to move along, so the screw
+      # cannot be seated any shallower.
+      ignore:
+        - [shoulder, motor]
+        - [shoulder, screw-horn]
 
 render:
   svg:

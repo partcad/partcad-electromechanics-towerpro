@@ -34,7 +34,7 @@ links:
       to: "//pub/std/metric/m:m2.5-threaded-hole-4"
   - part: fastener/countersunk-iso7046
     package: //pub/std/metric/cqwarehouse
-    name: screw-bottom
+    name: screw-horn
     params:
       size: M2.5-0.45
       length: 3.5
