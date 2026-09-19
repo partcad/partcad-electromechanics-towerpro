@@ -40,25 +40,18 @@ assemblies:
     type: assy
     desc: An example assembly with MG90S servo
     interference:
-      # Two pairs that are meant to touch, and do so in solid rather than in
-      # the springs and chamfers a STEP model does not carry.
+      # The two mounting screws bear on the motor's face, and the two faces
+      # meet exactly. Computed against a STEP model they come back 0.240 mm^3
+      # into each other, which over an ISO 4762 M2.5 head - 4.5mm across, so
+      # 15.9 mm^2 of bearing face - is 15 micrometres. That is the arithmetic
+      # of two surfaces that touch, not a screw that is in the way, and it is
+      # what this floor is for; the default of 0.05 mm^3 is 3 micrometres over
+      # that face, which is finer than the model is.
       #
-      #  * the horn is pushed onto the splined output boss - an interference
-      #    fit is what holds a servo horn on, so the two share the material the
-      #    splines bite into (2.922 mm^3);
-      #  * the countersunk screw beds into the horn, whose hole is modelled as
-      #    a plain 1mm through hole with no countersink to receive the cone
-      #    (1.627 mm^3).
-      #
-      # Both have always been here; they became visible when
-      # 'partcad.test.interference' stopped passing on its own failure
-      # (partcad/partcad#630). Neither is placement that can be corrected -
-      # 'moveZ' on these interfaces has no range to move along, so the screw
-      # cannot be seated any shallower.
-      ignore:
-        - [shoulder, motor]
-        - [shoulder, screw-horn]
-
+      # Only that. Everything else the check reports here is stated on the
+      # joint that causes it - see the 'snapIn' and 'interferes' in
+      # 'example/mg90s.assy'.
+      minVolume: 0.3
 render:
   svg:
   readme:
