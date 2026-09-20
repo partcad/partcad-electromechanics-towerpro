@@ -32,6 +32,12 @@ links:
       withInstance: inner
       name: motor
       to: "//pub/std/metric/m:m2.5-threaded-hole-4"
+      comment: >-
+        Pushed onto the splined output boss. An interference fit is what holds
+        a servo horn on, so the two share the material the splines bite into -
+        which a STEP model carries as solid, having no splines to deform.
+      how:
+        snapIn: true
   - part: fastener/countersunk-iso7046
     package: //pub/std/metric/cqwarehouse
     name: screw-horn
@@ -43,3 +49,13 @@ links:
         moveZ: 0.35
       name: shoulder
       toInstance: outer
+      comment: >-
+        The countersunk head beds into the horn, whose hole is modelled as a
+        plain 1mm through hole with no countersink to receive the cone. Pushed
+        home rather than seated on a matching taper, so the two share that much
+        space.
+      # It is connected to the horn and carries on into the motor behind it,
+      # which nothing about the connection itself can say.
+      interferes: motor
+      how:
+        snapIn: true
