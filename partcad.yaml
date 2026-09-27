@@ -1,10 +1,13 @@
+name: //pub/electromechanics/towerpro
 desc: TowerPro parts
+# Not manufacturable: the published design has overlapping parts. That is a
+# known flaw in the design these models come from, not something this package
+# introduced, so nothing here claims it can be built as drawn.
+manufacturable: false
 cover:
   assembly: example/mg90s
-docs:
-  name: //pub/electromechanics/towerpro
 
-import:
+dependencies:
   pub:
     onlyInRoot: True
     type: git
