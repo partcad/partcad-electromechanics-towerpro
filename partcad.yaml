@@ -1,4 +1,3 @@
-name: //pub/electromechanics/towerpro
 desc: TowerPro parts
 # Not manufacturable: the published design has overlapping parts. That is a
 # known flaw in the design these models come from, not something this package
@@ -6,6 +5,8 @@ desc: TowerPro parts
 manufacturable: false
 cover:
   assembly: example/mg90s
+docs:
+  name: //pub/electromechanics/towerpro
 
 dependencies:
   pub:
