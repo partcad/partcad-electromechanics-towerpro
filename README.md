@@ -2,10 +2,6 @@
 
 TowerPro parts
 
-## Sub-Packages
-
-### [pub](https://github.com/partcad/partcad-index/)
-
 ## Assemblies
 
 ### example/mg90s

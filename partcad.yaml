@@ -1,3 +1,7 @@
+# 0.8.131 is the first release whose schema accepts 'docs.name' (the README's
+# title) and 'exclude: [packages]' under 'render: readme:'. Older releases
+# report the first as a lint warning and fail 'pc lint' on the second.
+partcad: ">=0.8.131"
 desc: TowerPro parts
 # Not manufacturable: the published design has overlapping parts. That is a
 # known flaw in the design these models come from, not something this package
@@ -59,3 +63,5 @@ assemblies:
 render:
   svg:
   readme:
+    # 'pub' is where the dependencies come from, not a package inside this one.
+    exclude: [packages]
