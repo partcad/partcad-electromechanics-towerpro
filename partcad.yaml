@@ -47,19 +47,21 @@ assemblies:
   example/mg90s:
     type: assy
     desc: An example assembly with MG90S servo
-    interference:
-      # The two mounting screws bear on the motor's face, and the two faces
-      # meet exactly. Computed against a STEP model they come back 0.240 mm^3
-      # into each other, which over an ISO 4762 M2.5 head - 4.5mm across, so
-      # 15.9 mm^2 of bearing face - is 15 micrometres. That is the arithmetic
-      # of two surfaces that touch, not a screw that is in the way, and it is
-      # what this floor is for; the default of 0.05 mm^3 is 3 micrometres over
-      # that face, which is finer than the model is.
-      #
-      # Only that. Everything else the check reports here is stated on the
-      # joint that causes it - see the 'snapIn' and 'interferes' in
-      # 'example/mg90s.assy'.
-      minVolume: 0.3
+    qual:
+      topology:
+        interference:
+          # The two mounting screws bear on the motor's face, and the two faces
+          # meet exactly. Computed against a STEP model they come back
+          # 0.240 mm^3 into each other, which over an ISO 4762 M2.5 head - 4.5mm
+          # across, so 15.9 mm^2 of bearing face - is 15 micrometres. That is
+          # the arithmetic of two surfaces that touch, not a screw that is in
+          # the way, and it is what this floor is for; the default of 0.05 mm^3
+          # is 3 micrometres over that face, which is finer than the model is.
+          #
+          # Only that. Everything else the check reports here is stated on the
+          # joint that causes it - see the 'snapIn' and 'interferes' in
+          # 'example/mg90s.assy'.
+          minVolume: 0.3
 render:
   svg:
   readme:
